@@ -4,58 +4,52 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Historial - Valet Parking</title>
-    <link rel="stylesheet" href="../styles/styles.css">
-    <!-- Agregando Vercel Speed Insights -->
-    <script>
-      window.si = window.si || function () { (window.siq = window.siq || []).push(arguments); };
-    </script>
-    <script defer src="/_vercel/speed-insights/script.js"></script>
+    <link rel="stylesheet" href="styles/styles.css">
 </head>
-<body>
+<body class="body2">
     <div class="container">
-        <div class="header">
-            <img src="../public/images/parking.png" alt="Logo Valet Parking" class="logo">
-            <h1>Sistema de Valet Parking</h1>
-            <p class="subtitle">Historial de Vehículos</p>
-        </div>
+        <header>
+            <h1>Historial de Vehículos</h1>
+            <p>Registro de vehículos estacionados y liberados</p>
+        </header>
 
-        <nav class="nav-menu">
-            <a href="index.html" class="nav-link">Registrar</a>
-            <a href="codigo.html" class="nav-link">Liberar</a>
-            <a href="solicitar.html" class="nav-link">Solicitar</a>
-            <a href="historial.html" class="nav-link active">Historial</a>
-        </nav>
-
-        <div class="stats-container">
-            <div class="stat-card">
-                <h3>Total Vehículos</h3>
-                <p class="stat-number" id="totalVehiculos">0</p>
-            </div>
-            <div class="stat-card">
-                <h3>Estacionados</h3>
-                <p class="stat-number" id="estacionados">0</p>
-            </div>
-            <div class="stat-card">
-                <h3>Liberados</h3>
-                <p class="stat-number" id="liberados">0</p>
-            </div>
-        </div>
-
-        <div class="card">
-            <div class="filter-buttons">
-                <button class="btn btn-filter active" data-filter="todos">Todos</button>
-                <button class="btn btn-filter" data-filter="estacionado">Estacionados</button>
-                <button class="btn btn-filter" data-filter="liberado">Liberados</button>
+        <main>
+            <div class="filter-section">
+                <div class="button-group">
+                    <button onclick="showAll()" class="btn btn-small" id="btnAll">Todos</button>
+                    <button onclick="showParked()" class="btn btn-small" id="btnParked">Estacionados</button>
+                    <button onclick="showReleased()" class="btn btn-small" id="btnReleased">Liberados</button>
+                </div>
             </div>
 
-            <div id="listaHistorial"></div>
+            <div class="stats-section">
+                <div class="stat-card">
+                    <h3 id="totalParked">0</h3>
+                    <p>Vehículos Estacionados</p>
+                </div>
+                <div class="stat-card">
+                    <h3 id="totalReleased">0</h3>
+                    <p>Vehículos Liberados</p>
+                </div>
+                <div class="stat-card">
+                    <h3 id="totalToday">0</h3>
+                    <p>Total Hoy</p>
+                </div>
+            </div>
 
-            <button id="btnLimpiarLiberados" class="btn btn-danger" style="margin-top: 20px;">
-                Eliminar Vehículos Liberados
-            </button>
-        </div>
+            <div id="historyList" class="history-list">
+                <!-- Los registros se cargarán aquí dinámicamente -->
+            </div>
+
+            <div class="actions-section">
+                <button onclick="window.location.href='codigo.html'" class="btn btn-tertiary">
+                    ← Volver al Liberacion de Vehiculo
+                </button>
+                <!-- Eliminado el botón de limpiar historial para evitar problemas -->
+            </div>
+        </main>
     </div>
 
-    <script src="../js/historial.js"></script>
+    <script src="js/historial.js"></script>
 </body>
 </html>
