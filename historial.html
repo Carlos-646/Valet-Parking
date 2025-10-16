@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Historial - Valet Parking</title>
+    <link rel="stylesheet" href="styles/styles.css">
+</head>
+<body class="body2">
+    <div class="container">
+        <header>
+            <h1>Historial de Vehículos</h1>
+            <p>Registro de vehículos estacionados y liberados</p>
+        </header>
+
+        <main>
+            <div class="filter-section">
+                <div class="button-group">
+                    <button onclick="showAll()" class="btn btn-small" id="btnAll">Todos</button>
+                    <button onclick="showParked()" class="btn btn-small" id="btnParked">Estacionados</button>
+                    <button onclick="showReleased()" class="btn btn-small" id="btnReleased">Liberados</button>
+                </div>
+            </div>
+
+            <div class="stats-section">
+                <div class="stat-card">
+                    <h3 id="totalParked">0</h3>
+                    <p>Vehículos Estacionados</p>
+                </div>
+                <div class="stat-card">
+                    <h3 id="totalReleased">0</h3>
+                    <p>Vehículos Liberados</p>
+                </div>
+                <div class="stat-card">
+                    <h3 id="totalToday">0</h3>
+                    <p>Total Hoy</p>
+                </div>
+            </div>
+
+            <div id="historyList" class="history-list">
+                <!-- Los registros se cargarán aquí dinámicamente -->
+            </div>
+
+            <div class="actions-section">
+                <button onclick="window.location.href='codigo.html'" class="btn btn-tertiary">
+                    ← Volver al Liberacion de Vehiculo
+                </button>
+                <!-- Eliminado el botón de limpiar historial para evitar problemas -->
+            </div>
+        </main>
+    </div>
+
+    <script src="js/historial.js"></script>
+</body>
+</html>

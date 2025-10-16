@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valet Parking - Restaurante</title>
+    <link rel="stylesheet" href="styles/styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="Cabeza">
+            <img src="img/parking.png" alt="Logo" class="logo">
+            <h1 class="Titulo">Valet Parking: Sistema de Estacionamiento del Restaurante</h1>
+            </div>
+        </header>
+
+        <main>
+            <div class="form-section">
+                <h2>Registro de Vehículo</h2>
+                <form id="vehicleForm">
+                    <div class="form-group">
+                        <label for="clientName">Nombre del Cliente:</label>
+                        <input type="text" id="clientName" placeholder="Ej: Juan Pérez" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="carBrandModel">Marca y Modelo:</label>
+                        <input type="text" id="carBrandModel" placeholder="Ej: Toyota Corolla, Honda Civic" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="carColor">Color:</label>
+                        <input type="text" id="carColor" placeholder="Ej: Blanco, Negro, Rojo" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="licensePlate">Placas:</label>
+                        <input type="text" id="licensePlate" placeholder="Ej: ABC-123, XYZ-789" required style="text-transform: uppercase;">
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary">Registrar Vehículo</button>
+                </form>
+                
+                <br></br>
+                <div class="request-section">
+                    <h3>¿Ya tienes tu número y quieres retirar tu vehículo?</h3>
+                    <button onclick="window.location.href='solicitar.html'" class="btn btn-secondary">
+                        Solicitar Mi Vehículo
+                    </button>
+                </div>
+            </div>
+
+            <div class="success-message" id="successMessage" style="display: none;">
+                <div class="success-content">
+                    <div class="success-icon">✓</div>
+                    <h3>¡Vehículo registrado exitosamente!</h3>
+                    <!-- Cambiar texto de código a número -->
+                    <p>Número asignado: <span class="code-display" id="generatedCode"></span></p>
+                    <p>Entregue este número al cliente para retirar su vehículo.</p>
+                    <br></br>
+                    <button type="button" onclick="closeSuccessMessage()" class="btn close-btn">Cerrar</button>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

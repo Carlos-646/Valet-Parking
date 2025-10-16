@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Solicitar Vehículo - Valet Parking</title>
+    <link rel="stylesheet" href="styles/styles.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Solicitar Mi Vehículo</h1>
+            <p>Ingrese su número de valet parking</p>
+        </header>
+
+        <main>
+            <div class="form-section">
+                <form id="requestForm" class="code-form">
+                    <div class="form-group">
+                        <label for="vehicleNumber">Mi número de valet (1-30):</label>
+                        <input
+                            type="text"
+                            id="vehicleNumber"
+                            name="vehicleNumber"
+                            placeholder="Ej: 15"
+                            required
+                            pattern="[1-9]|[12][0-9]|30"
+                            title="Ingrese un número del 1 al 30"
+                            style="text-align: center; font-size: 1.5em;"
+                        />
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary">Solicitar Mi Vehículo</button>
+                </form>
+            </div>
+
+            <div class="success-message" id="successMessage" style="display: none;">
+                <div class="success-content">
+                    <div class="success-icon">✓</div>
+                    <h3>¡Solicitud enviada!</h3>
+                    <p>Su solicitud ha sido enviada al personal de valet.</p>
+                    <p>Por favor espere mientras preparan su vehículo.</p>
+                    <br></br>
+                    <button type="button" onclick="goHome()" class="btn close-btn">Volver al Inicio</button>
+                </div>
+            </div>
+
+            <div class="error-message" id="errorMessage" style="display: none;">
+                <p>⚠️ Número inválido o vehículo no encontrado. Verifique su número.</p>
+            </div>
+
+            <div class="actions-section">
+                <button onclick="window.location.href='index.html'" class="btn btn-tertiary">
+                    ← Volver al Inicio
+                </button>
+            </div>
+        </main>
+    </div>
+
+    <script src="js/solicitar.js"></script>
+</body>
+</html>
