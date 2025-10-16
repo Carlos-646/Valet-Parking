@@ -3,83 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ingresar Código - Valet Parking</title>
-    <link rel="stylesheet" href="styles/styles.css">
+    <title>Liberar Vehículo - Valet Parking</title>
+    <link rel="stylesheet" href="../styles/styles.css">
+    <!-- Agregando Vercel Speed Insights -->
+    <script>
+      window.si = window.si || function () { (window.siq = window.siq || []).push(arguments); };
+    </script>
+    <script defer src="/_vercel/speed-insights/script.js"></script>
 </head>
-<body class="body2">
+<body>
     <div class="container">
-        <header>
-            <div class="Cabeza">
-            <img src="img/parking.png" alt="Logo" class="logo">
-            <h1 class="Titulo">Liberar Vehículo</h1>
-            </div>
-        </header>
+        <div class="header">
+            <img src="../public/images/parking.png" alt="Logo Valet Parking" class="logo">
+            <h1>Sistema de Valet Parking</h1>
+            <p class="subtitle">Liberar Vehículo</p>
+        </div>
 
-        <main>
-            <!-- Agregando sección de solicitudes pendientes -->
-            <div class="requests-section" id="requestsSection" style="display: none;">
-                <h3>Solicitudes Pendientes</h3>
-                <div id="pendingRequests" class="requests-list">
-                    <!-- Las solicitudes se cargarán aquí dinámicamente -->
+        <nav class="nav-menu">
+            <a href="index.html" class="nav-link">Registrar</a>
+            <a href="codigo.html" class="nav-link active">Liberar</a>
+            <a href="solicitar.html" class="nav-link">Solicitar</a>
+            <a href="historial.html" class="nav-link">Historial</a>
+        </nav>
+
+        <div class="card">
+            <h2>Buscar Vehículo por Número</h2>
+            <form id="buscarForm">
+                <div class="form-group">
+                    <label for="numeroBuscar">Número del Vehículo</label>
+                    <input type="number" id="numeroBuscar" min="1" max="30" required>
                 </div>
-            </div>
+                <button type="submit" class="btn btn-primary">Buscar</button>
+            </form>
+        </div>
 
-            <div class="form-section">
-                <form id="codeForm" class="code-form">
-                    <div class="form-group">
-                        <!-- Cambiar placeholder y label para números -->
-                        <label for="releaseCode">Número del vehículo (1-30):</label>
-                        <input
-                            type="text"
-                            id="releaseCode"
-                            name="releaseCode"
-                            placeholder="ej: 15"
-                            required
-                            maxlength="2"
-                            style="text-transform: uppercase; text-align: center; font-size: 1.5em; letter-spacing: 0.2em;"
-                        />
-                    </div>
-                    
-                    <button type="submit" class="btn btn-primary">Buscar Vehículo</button>
-                </form>
-            </div>
+        <div id="solicitudesPendientes" class="card" style="display: none;">
+            <h2>Solicitudes Pendientes</h2>
+            <div id="listaSolicitudes"></div>
+        </div>
 
-            <div id="vehicleInfo" class="vehicle-info" style="display: none;">
-                <h3>Información del Vehículo</h3>
-                <div class="info-card">
-                    <p><strong>Cliente:</strong> <span id="infoClientName"></span></p>
-                    <p><strong>Vehículo:</strong> <span id="infoCarDetails"></span></p>
-                    <p><strong>Placas:</strong> <span id="infoLicensePlate"></span></p>
-                    <p><strong>Hora de Entrada:</strong> <span id="infoEntryTime"></span></p>
-                    <p><strong>Tiempo Estacionado:</strong> <span id="infoParkedTime"></span></p>
-                </div>
-                <div class="button-group">
-                    <button onclick="confirmRelease()" class="btn btn-success">Confirmar Liberación</button>
-                    <button onclick="cancelRelease()" class="btn btn-secondary">Cancelar</button>
-                </div>
-            </div>
-
-            <!-- Actualizar mensaje de error -->
-            <div class="error-message" id="errorMessage" style="display: none;">
-                <p>⚠️ Número inválido o vehículo no encontrado. Verifique que el número esté entre 1 y 30.</p>
-            </div>
-
-            <!-- Agregando sección para mostrar autos estacionados -->
-            <div class="parked-vehicles-section">
-                <h3>Vehículos en Estacionamiento</h3>
-                <div id="parkedVehiclesList" class="parked-vehicles-list">
-                    <!-- Los vehículos se cargarán aquí dinámicamente -->
-                </div>
-            </div>
-
-            <div class="actions-section">
-                <button onclick="window.location.href='historial.html'" class="btn btn-tertiary">
-                    ← Volver al Historial
-                </button>
-            </div>
-        </main>
+        <div id="resultadoBusqueda" class="card" style="display: none;">
+            <h2>Información del Vehículo</h2>
+            <div id="infoVehiculo"></div>
+            <button id="btnLiberar" class="btn btn-success">Liberar Vehículo</button>
+            <button onclick="location.reload()" class="btn btn-secondary">Nueva Búsqueda</button>
+        </div>
     </div>
 
-    <script src="js/codigo.js"></script>
+    <script src="../js/codigo.js"></script>
 </body>
 </html>

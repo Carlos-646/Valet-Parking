@@ -3,68 +3,75 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Valet Parking - Restaurante</title>
-    <link rel="stylesheet" href="styles/styles.css">
+    <title>Registro de Vehículos - Valet Parking</title>
+    <link rel="stylesheet" href="../styles/styles.css">
+    <!-- Agregando Vercel Speed Insights -->
+    <script>
+      window.si = window.si || function () { (window.siq = window.siq || []).push(arguments); };
+    </script>
+    <script defer src="/_vercel/speed-insights/script.js"></script>
 </head>
 <body>
     <div class="container">
-        <header>
-            <div class="Cabeza">
-            <img src="img/parking.png" alt="Logo" class="logo">
-            <h1 class="Titulo">Valet Parking: Sistema de Estacionamiento del Restaurante</h1>
-            </div>
-        </header>
+        <div class="header">
+            <img src="../public/images/parking.png" alt="Logo Valet Parking" class="logo">
+            <h1>Sistema de Valet Parking</h1>
+            <p class="subtitle">Registro de Vehículos</p>
+        </div>
 
-        <main>
-            <div class="form-section">
-                <h2>Registro de Vehículo</h2>
-                <form id="vehicleForm">
-                    <div class="form-group">
-                        <label for="clientName">Nombre del Cliente:</label>
-                        <input type="text" id="clientName" placeholder="Ej: Juan Pérez" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="carBrandModel">Marca y Modelo:</label>
-                        <input type="text" id="carBrandModel" placeholder="Ej: Toyota Corolla, Honda Civic" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="carColor">Color:</label>
-                        <input type="text" id="carColor" placeholder="Ej: Blanco, Negro, Rojo" required>
-                    </div>
-                    
-                    <div class="form-group">
-                        <label for="licensePlate">Placas:</label>
-                        <input type="text" id="licensePlate" placeholder="Ej: ABC-123, XYZ-789" required style="text-transform: uppercase;">
-                    </div>
-                    
-                    <button type="submit" class="btn btn-primary">Registrar Vehículo</button>
-                </form>
-                
-                <br></br>
-                <div class="request-section">
-                    <h3>¿Ya tienes tu número y quieres retirar tu vehículo?</h3>
-                    <button onclick="window.location.href='solicitar.html'" class="btn btn-secondary">
-                        Solicitar Mi Vehículo
-                    </button>
-                </div>
-            </div>
+        <nav class="nav-menu">
+            <a href="index.html" class="nav-link active">Registrar</a>
+            <a href="codigo.html" class="nav-link">Liberar</a>
+            <a href="solicitar.html" class="nav-link">Solicitar</a>
+            <a href="historial.html" class="nav-link">Historial</a>
+        </nav>
 
-            <div class="success-message" id="successMessage" style="display: none;">
-                <div class="success-content">
-                    <div class="success-icon">✓</div>
-                    <h3>¡Vehículo registrado exitosamente!</h3>
-                    <!-- Cambiar texto de código a número -->
-                    <p>Número asignado: <span class="code-display" id="generatedCode"></span></p>
-                    <p>Entregue este número al cliente para retirar su vehículo.</p>
-                    <br></br>
-                    <button type="button" onclick="closeSuccessMessage()" class="btn close-btn">Cerrar</button>
+        <div class="card">
+            <h2>Registrar Nuevo Vehículo</h2>
+            <form id="registroForm">
+                <div class="form-group">
+                    <label for="nombre">Nombre del Cliente</label>
+                    <input type="text" id="nombre" required>
                 </div>
-            </div>
-        </main>
+
+                <div class="form-group">
+                    <label for="telefono">Teléfono</label>
+                    <input type="tel" id="telefono" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="placas">Placas del Vehículo</label>
+                    <input type="text" id="placas" required style="text-transform: uppercase;">
+                </div>
+
+                <div class="form-group">
+                    <label for="marca">Marca</label>
+                    <input type="text" id="marca" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="modelo">Modelo</label>
+                    <input type="text" id="modelo" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="color">Color</label>
+                    <input type="text" id="color" required>
+                </div>
+
+                <button type="submit" class="btn btn-primary">Registrar Vehículo</button>
+            </form>
+        </div>
+
+        <div id="numeroAsignado" class="numero-asignado" style="display: none;">
+            <h2>¡Vehículo Registrado!</h2>
+            <p>Número asignado:</p>
+            <div class="numero-grande" id="numeroDisplay"></div>
+            <p class="info-text">Entregue este número al cliente</p>
+            <button onclick="location.reload()" class="btn btn-secondary">Registrar Otro</button>
+        </div>
     </div>
 
-    <script src="js/script.js"></script>
+    <script src="../js/script.js"></script>
 </body>
 </html>
